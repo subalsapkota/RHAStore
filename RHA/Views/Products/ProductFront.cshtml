@@ -1,0 +1,31 @@
+﻿@model IEnumerable<RHA.Models.Product>
+@{
+    ViewBag.Title = "ProductFront";
+}
+
+
+
+@foreach (var item in Model)
+{
+
+    <div class="col-xs-12 col-md-3">
+        <div class="thumbnail">
+            <a href="@Url.Action("ProductDetails","Products",new {id= item.ID})">
+
+                <img class="img-responsive See" src="~/Content/image/@(item.Picture).jpg" width="500" height="600">
+
+            </a>
+            <div class="caption text-center">
+                <p>
+                    <b>Name:</b> <span> @item.Name</span>
+                </p>
+                <p>
+                    <b>Price:</b> <span>@item.Price USD</span>
+                </p>
+
+               
+            </div>
+        </div>
+    </div>
+}
+

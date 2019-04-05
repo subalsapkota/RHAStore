@@ -1,0 +1,19 @@
+﻿
+    @{
+        ViewBag.Title = "Admin DashBoard";
+    }
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="~/Content/admindashboard.css" rel="stylesheet" />
+
+
+    </head>
+    <body>
+        <h2>AdminDashBoard</h2>
+        <div class="container" background-color="Black">
+            <li>@Html.ActionLink("Users", "Index", "tblUsers")</li>
+            <li>@Html.ActionLink("Products", "Index", "Products")</li>
+        </div>
+    </body> 

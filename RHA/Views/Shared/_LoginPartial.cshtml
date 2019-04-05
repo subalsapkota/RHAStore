@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNet.Identity
+@using RHA.Models
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("AdminDashBoard", "AdminDashBoard", "tblUsers")</li>
+        <li>
+            @{
+                @*using (RHASTOREEntities db = new RHASTOREEntities())
+                {
+                    var current_user = Convert.ToInt32(User.Identity.Name);
+                    var username = db.tblUsers.Where(us => us.ID == current_user).Select(x => x.FirstName).FirstOrDefault();
+                    @Html.ActionLink("Hello " + username + "!", "", "")
+                }*@
+            }
+              
+            </li>
+       @*<li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>*@
+        <li>@Html.ActionLink("Our Pruduct", "ProductFront", "Products", routeValues: null, htmlAttributes: new { id = "ProductLink" })</li>
+
+        <li> @Html.ActionLink("LogOff", "LogOff", "Account") </li>
+
+        </ul>
+        }
+    }
+    else
+    {
+        <ul class="nav navbar-nav navbar-right">
+
+            <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            <li>@Html.ActionLink("Our Pruduct", "ProductFront", "Products", routeValues: null, htmlAttributes: new { id = "ProductLink" })</li>
+        </ul>
+    }

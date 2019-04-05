@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Resident Hall Association</title>
+    @Styles.Render("~/Content/css")
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light">
+        <a class="navbar-brand" ><i class="fa d-inline fa-lg fa-university"></i><b>&nbsp;@Html.ActionLink("Resident Hall Association", "Index", "Home")</b></a>
+        <div class="container">
+            @* <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>*@
+                        @*<div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+            <ul class="navbar-nav"></ul>
+            <a class="btn btn-default navbar-btn" href="http://localhost:62779/Account/Login">Sign in</a>
+            <a class="btn btn-default navbar-btn" href="http://localhost:62779/Account/Register">Register</a>
+             <a class="btn btn-default navbar-btn" href="http://localhost:62779/Products/ProductFront">Product</a>
+        </div>*@
+            
+            @Html.Partial("_LoginPartial")
+        </div>
+        @{
+            if (User.IsInRole("2"))
+            {
+                <btn class="btn btn-primary btn-lg ">
+                    <span class="fa fa-fw fa-shopping-cart"></span> @Html.ActionLink("Cart", "Index", "Cart")
+
+                </btn>
+            }
+        }
+      
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        
+    </div>
+    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+
+    <footer>
+        <p>&copy; @DateTime.Now.Year - CMPS 285 - Team 3</p>
+    </footer>
+
+</html>
